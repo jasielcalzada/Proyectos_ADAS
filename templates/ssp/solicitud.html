@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<center><h1>Solicitude de realizacion de Proyecto</h1></center>
+<center>
+<div class="container">
+<div class="container-fluid bg-2 text-center">
+	<div class ="table-responsive">
+		<table class="table">
+			<tr>
+				<th>Solicitante</th>
+				<th>Proyecto</th>
+				<th>Descripcion</th>
+				<th>Categoria</th>
+				<th>Empresa</th>
+				<th>Respuesta</th>
+				<th>Perfil</th>
+			</tr>
+			{%for item in proyectos%}
+				{%if item.selecionar == True %}
+						
+			<tr>
+				<td>{{item.estudiantess}}</td>
+				<td>{{item.nombre}}</td>
+				<td>{{item.descripcion}}</td>
+				<td>{{item.categoria}}</td>
+				<td>{{item.empresa}}</td>
+				<td><a href="/update_proyecto_empresa/{{item.pk}}">Responder</a></td>
+			</tr>
+			{%for i in curriculums%}
+				{%if i.perfil.profile.ncontrol%}
+				<tr>
+					<td><a href="/detalle_perfil/{{i.pk}}">Perfil</a></td>
+				</tr>
+				{%endif%}
+			{%endfor%}	
+				{%endif%}
+			{%endfor%}
+		</table>
+	</div>
+</div>
+</div>
+{%endblock%}

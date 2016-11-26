@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<center><h1>Detalla de {{object.nombre}}</h1></center>
+<div class="container">
+
+	<div class="jumbotron">
+            <center>
+            	<td><label>Nombre</label></td>
+                <td><h2>{{object.nombre}}</h2></td><br>
+                <td><label>Descripcion</label></td>
+                <td><p>{{object.descripcion}}</p><br>
+                <td><label>Fecha de publicacion</label></td>
+				<td><p>{{object.fecha_publicacion}}</p></td><br>
+				<td><label>Perfil del proyecto</label></td>
+				<td><p>{{object.perfil_proyecto}}</p></td><br>
+				<td><label>Categoria</label></td>
+				<td><p>{{object.categoria}}</p></td><br>
+				<td><label>Empresa</label></td>
+				<td><p>{{object.empresa}}</p></td><br>
+			</center>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%block content %}
+<div class="container">
+	<div class="row">
+		<h1>Registro de proyectos de {{user.empresas.nombre}}	</h1>
+		<form  method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				<label for="nombre">Nombre:</label>
+				<input type="text" id="nombre" name="nombre">
+
+				<label for="descripcion">Descripcion:</label>
+				<input type="text" id="descripcion" name="descripcion">
+
+				<label for="fecha_publicacion">Fecha de publicacion:</label>
+				<input type="date" id="fecha_publicacion" name="fecha_publicacion">
+
+				<label="perfil_proyecto">perfil proyecto:</label>
+				<textarea id="perfil_proyecto" name="perfil_proyecto"placeholder="Escribe el perfi deseado"></textarea>
+
+				<label for="mostrar">Publicar</label>
+				<input id="mostrar" type="checkbox" name="mostrar" checked="">
+
+				<label for="categoria">Categoria</label>
+				<select class="unselected" name="categoria" id="categoria">
+					<option value="" disabled="" selected="">Seleccione una categoria</option>
+		            <option value="programacion modular">programacion modular</option>
+		            <option value="programacion WEB">programacion WEB</option>
+		            <option value="redes de compuradora">redes de compuradora</option>
+		            <option value="administracion de base de datos">administracion de base de datos</option>
+				</select>
+
+				<label for="empresa">Empresa:</label>
+				<input type="text" id="empresa" name="empresa" value="{{user.empresas.rfc}}">
+
+				<input class="btn btn-outline btn-primary" type="submit" value="Enviar">
+                <input class="btn btn-outline btn-danger" type="reset" value="Cancelar">
+		</form>
+	</div>
+</div>
+{%endblock%}

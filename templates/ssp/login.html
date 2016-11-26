@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%block content %}
+<br>
+<div class="container">
+   <form method='POST'autocomplete="off">
+       {% csrf_token %}
+       <h1>Login</h1>                     
+           <div class="row">
+                    <div class="row">                               
+                        <input id="icon_prefix" type="text" class="validate" name="username" placeholder="username">                                 
+                    </div><br>
+                    <div class="row">
+                        <input id="icon_telephone" class="validate" type="password" name="password" placeholder="password">
+                    </div>
+     
+            </div><br>
+            <input type="submit" value="Login" id= "login" >              
+    </form>
+</div>        
+{%endblock%}

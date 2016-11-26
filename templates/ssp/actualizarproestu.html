@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{%load staticfiles%}
+{%block content%}
+<br><br><br>
+<div class="panel-body">
+	<center>
+                 <form method="POST">
+                    {% csrf_token %}
+                    <!--{{ form.as_p }}-->
+                    <input type="hidden" id="id_estudiantess" name="estudiantess" value="{{user.profile.ncontrol}}"><br>
+                    <label>Seleccionar Proyecto</label><br>
+                    <input class="form-control"  type="checkbox" id="id_selecionar" name="selecionar"><br><br>
+                    <input type="submit" class="btn btn-outline btn-primary" value="Actualizar">
+                    <input type="reset" class="btn btn-outline btn-danger" value="Cancelar">
+                </form>
+                </center>
+            </div>
+{%endblock%}

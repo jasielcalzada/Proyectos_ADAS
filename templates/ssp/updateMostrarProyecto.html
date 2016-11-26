@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%block content %}
+<br>
+<center>
+<div class="container">
+	<h3>Deseas cambiar la visibilidad del proyecto?</h3>
+	<div class="row">
+		<form method="POST">
+	                    {% csrf_token %}
+	                    {{ form.as_p }}
+	                    <input type="submit" class="btn btn-outline btn-primary" value="Actualizar">
+	                    <input type="reset" class="btn btn-outline btn-danger" value="Cancelar">
+	    </form>
+	</div>
+</div>
+</center>
+{% endblock %}

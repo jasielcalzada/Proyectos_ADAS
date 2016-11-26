@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<center><h1>curriculum de {{user.username}}</h1></center>
+<center>
+{%if user.more.done == True %}
+	{{user.profile.nombre}}<br>
+	{{user.profile.ncontrol}}<br>
+	{{user.profile.carrera}}<br>
+	{{user.more.tecnologias}}<br>
+	{{user.more.experiencia_profesional}}<br>
+	{{user.more.idioma}}<br>
+	{{user.more.fortaleza}}<br><br>
+{%else%}
+<div class="container">
+<form  method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input class="btn btn-outline btn-primary" type="submit" value="Enviar">
+</form>
+</center>
+</div>
+{%endif%}
+{%endblock%}

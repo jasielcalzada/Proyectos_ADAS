@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%block content %}
+<br>
+<br>
+{%if user.more.done == True %}
+<div class="container">
+	<div class="row">
+		<form action ="" method = "POST">
+				{% csrf_token %}
+				<select id="categoria" type="text" name="campo">
+					<optgroup label="">
+						<option value="programacion modular">programacion modular</option>
+						<option value="programacion WEB">programacion WEB</option>
+						<option value="redes de compuradora">redes de compuradora</option>
+						<option value="administracion de base de datos">administracion de base de datos</option>
+						<option value="prueva">prueva</option>
+					</optgroup>
+				</select> 						
+				<input type = "submit" name = "find" id = "find" value = "Buscar">	
+		</form>
+		<div class="container-fluid bg-2 text-center">
+			<div class ="table-responsive">
+				<table class="table">
+					<tr>
+						<th>Nombre del proyecto</th>
+						<th>Descripcion</th>
+						<th>Fecha publicacion</th>
+						<th>Categoria</th>
+						<th>Empresa</th>
+						<th>Seleccionar</th>
+					</tr>
+
+					{% for item in objects %}
+						{%if item.mostrar = True%}
+							{%if item.selecionar = False%}
+								{%if item.aprovado = "en proceso"%}
+								<tr>
+									<td><a href="/detalle_proyecto/{{item.pk}}">{{item.nombre}}</a></td>
+									<td>{{item.descripcion}}</td>
+									<td>{{item.fecha_publicacion}}</td>
+									<td>{{item.categoria}}</td>
+									<td>{{item.empresa}}</td>
+									<!--{%for e in empresas%}-->
+										<!--{%if e.rfc == item.empresa %}-->
+										<!--<td><a href="/detalle_empresa/{{e.rfc}}">{{item.empresa}}</a></td>-->
+										<!--{%endif%}
+									{%endfor%}-->
+									<td><a href="/update_proyecto_estudiante/{{item.pk}}">Selecionar</a></td>
+								</tr>
+							
+								{%endif%}
+							{%endif%}
+						{%endif%}
+					{% endfor %}
+				</table>
+			</div>
+			<h3>{{mensaje}}</h3>
+		</div>
+	</div>
+</div>
+{%else%}
+<h3>primero lleve el curriculum</h3>
+{%endif%}
+{%endblock%}

@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<script src="{% static 'groundwork/js/libs/jquery-1.10.2.min.js'%}"> </script>
+<script src="{% static 'groundwork/js/libs/modernizr-2.6.2.min.js'%}"> </script>
+<link rel="stylesheet" href="{% static 'groundwork/css/groundwork.css'%}">
+
+<nav class="nav" title="Menu">
+  <ul>
+    <li><button>Menu</button></li>
+    {% if user.profile.categoria = "estudiante"%}
+    <li><button><a href="/buscar_proyecto">Buscar proyecto</a></button></li>
+    <li><button><a href="/curriculum">Curriculum</a></button></li>
+    <li><button><a href="/proyectos_en_curso">Proyectos en curso</a></button>
+    {%endif%}
+    {% if user.empresas.categoria = "empresa"%}
+    <li><button><a href="/register_proyecto">Ingresar proyecto</a></button></li>
+    <li><button><a href="/solicitud">Solicitudes de proyectos</a></li>
+    {%endif%}
+    {% if not user.is_authenticated %}
+    <li><button><a href="/login">Login</a></button></li>
+    {%endif%}
+    {% if user.is_authenticated %}
+    <li><button><a href="/logout">Logout</a></button></li>
+    {%endif%}
+    {% if user.empresas.categoria = "empresa"%}
+    <li><button><a href="/listado_proyecto">Listado de proyectos</a></button></li>
+    {%endif%}
+    {% if user.is_authenticated %}
+    <li><button><a href="">{{user.empresas.nombre}}</a></button></li>
+    {%endif%}
+    {% if user.is_authenticated %}
+    <li><button><a href="">{{user.profile.nombre}}</a></button></li>
+    {%endif%}
+    {% if not user.is_authenticated %}
+    <li><button><a href="/registroEmpresa">Registrar Empresa</a></button></li>
+    <li><button><a href="/registroEstudiantes">Registrar Estudiante</a></button></li>
+    {%endif%}
+  </ul>
+</nav>
+
+{% block content %}{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<link href ="{% static 'bootstrap/css/bootstrap.min.css'%}">
+{% block content %}
+{% if user.is_authenticated %}
+<center><h1>{{user.username}}'s Perfil</h1></center>
+<center>
+<ul class="nav nav-pills nav-stacked">
+	<center>
+		<li><img src="{{user.profile.image.url}}" height="60"  border-radius= "150" class="circular"></li></center>
+	
+        <h1><li>Nombre:  {{user.profile.nombre}} </li></h1>
+        <h1><li>Apellido: {{user.profile.apellido}} </li></h1>
+        <h1><li>Email: {{user.profile.mail}}</li></h1>
+        <h1><li>Numero de control: {{user.profile.ncontrol}}</li></h1>
+        <h1><li>Telefono: {{user.profile.phone}}</li></h1>
+        <h1><li>Carrera: {{user.profile.carrera}}</li></h1>
+      </ul><br>
+       <input type="button" class="btn btn-primary" value="Update" onClick="location.href = '/update/{{user.profile.ncontrol}}'">
+</center>
+{%endif%}
+{%endblock%}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%load staticfiles%}
+{%block content%}
+<center><h1>Aceptar o rechazar solicitud de proyecto</h1></center>
+<h2>Solo se puede escoger una opcion</h2>
+<div class="panel-body">
+	<center>
+                 <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" class="btn btn-outline btn-primary" value="Actualizar">
+                    <input type="reset" class="btn btn-outline btn-danger" value="Cancelar">
+                </form>
+                </center>
+            </div>
+{%endblock%}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<center><h1>Perfil del estudiante</h1></center>
+<center>
+<h2>{{object.perfil.profile.nombre}}<h2><br>
+<h2>{{object.tecnologias}}<h2><br>
+<h2>{{object.experiencia_profesional}}<h2><br>
+<h2>{{object.idioma}}<h2><br>
+<h2>{{object.fortaleza}}<h2><br>
+</center>
+{%endblock%}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%block content %}
+<br><br>
+<div class="container">
+	<div class="row">
+<table class="responsive" data-max="15">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+	  <th>Descripcion</th>
+	  <th>Fecha de publicacion</th>
+	  <th>Perfil de proyecto<th>
+	  <th>Categoria</th>
+	  <th>Empresa</th>
+	  <th>Publicado</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{%for p in pro%}
+    <tr>
+      <td>{{p.nombre}}</td>
+	  <td>{{p.descripcion}}</td>
+	  <td>{{p.fecha_publicacion}}</td>
+	  <td>{{p.perfil_proyecto}}</td>
+	  <td>{{p.categoria}}</td>
+	  <td>{{p.empresa}}</td>
+	  <td><a href="/update_proyecto_empresa_mostrar/{{p.pk}}">{{p.mostrar}}</a></td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+</div>
+</iv>
+
+{% endblock%}

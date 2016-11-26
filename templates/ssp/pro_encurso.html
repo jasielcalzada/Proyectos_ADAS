@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+<div class="row">
+<center><h3>Proyecto en curso de {{user.profile.nombre}}</h3></center>
+<table class="table table-striped">
+	<br>
+<tr>
+	<th>Nombre</th>
+	<th>Numero de control</th>
+	<th>carrera</th>
+	<th>proyecto</th>
+	<th>Respuesta<th>
+</tr>
+{%for item in pro%}
+{%if item.aprovado == "en proceso"%}
+<tr>
+	<td>{{user.profile.nombre}}</td>     
+    <td>{{user.profile.ncontrol}}</td>
+    <td>{{user.profile.carrera}}</td>
+    <td>{{item.nombre}}</td>
+    <td>{{item.aprovado}}</td>
+</tr>
+{%elif item.aprovado == "rechasado"%}
+<center><h3>lo sentimos {{user.profile.nombre}} pero no cumple con el perfil que se espera para ese proyecto</h3></center>
+</tr>
+{%elif item.aprovado == "aprovado"%}
+<center><h3> {{user.profile.nombre}} Fuiste aceptado para realizar el proyecto {{item.nombre}}</h3></center>
+{%endif%}
+{%endfor%}
+</table>
+</div>
+</div>
+{%endblock%}
