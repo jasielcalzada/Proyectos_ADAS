@@ -28,7 +28,7 @@
 				<td><a href="/update_proyecto_empresa/{{item.pk}}">Responder</a></td>
 			</tr>
 			{%for i in curriculums%}
-				{%if i.perfil.profile.ncontrol%}
+				{%if i.perfil.profile.ncontrol == item.estudiantess.ncontrol%}
 				<tr>
 					<td><a href="/detalle_perfil/{{i.pk}}">Perfil</a></td>
 				</tr>

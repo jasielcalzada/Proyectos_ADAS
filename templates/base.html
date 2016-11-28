@@ -25,7 +25,7 @@
     <li><button><a href="/listado_proyecto">Listado de proyectos</a></button></li>
     {%endif%}
     {% if user.is_authenticated %}
-    <li><button><a href="">{{user.empresas.nombre}}</a></button></li>
+    <li><button><a href="">Bienbenido: {{user.empresas.nombre}}</a></button></li>
     {%endif%}
     {% if user.is_authenticated %}
     <li><button><a href="">{{user.profile.nombre}}</a></button></li>

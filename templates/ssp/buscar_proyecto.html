@@ -40,12 +40,12 @@
 									<td>{{item.descripcion}}</td>
 									<td>{{item.fecha_publicacion}}</td>
 									<td>{{item.categoria}}</td>
-									<td>{{item.empresa}}</td>
-									<!--{%for e in empresas%}-->
-										<!--{%if e.rfc == item.empresa %}-->
-										<!--<td><a href="/detalle_empresa/{{e.rfc}}">{{item.empresa}}</a></td>-->
-										<!--{%endif%}
-									{%endfor%}-->
+									<!--<td>{{item.empresa}}</td>-->
+									{%for e in empresas%}
+										{%if e.rfc == item.empresa.rfc %}
+										 <td><a href="/detalle_empresa/{{e.rfc}}">{{item.empresa}}</a></td>
+										{%endif%}
+									{%endfor%}
 									<td><a href="/update_proyecto_estudiante/{{item.pk}}">Selecionar</a></td>
 								</tr>
 							

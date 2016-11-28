@@ -27,7 +27,9 @@
 <center><h3>lo sentimos {{user.profile.nombre}} pero no cumple con el perfil que se espera para ese proyecto</h3></center>
 </tr>
 {%elif item.aprovado == "aprovado"%}
-<center><h3> {{user.profile.nombre}} Fuiste aceptado para realizar el proyecto {{item.nombre}}</h3></center>
+<center><h3> {{user.profile.nombre}} Fuiste aceptado para realizar el proyecto {{item.nombre}}
+ponte en contacto con {{item.empresa.nombre}} al telefono {{item.empresa.phone}} o contactanos en este correo: {{item.empresa.mail}}
+</h3></center>
 {%endif%}
 {%endfor%}
 </table>

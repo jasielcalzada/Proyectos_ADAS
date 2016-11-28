@@ -40,7 +40,7 @@ class Proyecto(models.Model):
 	selecionar = models.BooleanField(default=False)
 	respuesta = (('aprovado','aprovado'),('rechasado','rechasado'),('en proceso','en proceso'))
 	aprovado = models.CharField(max_length=44,choices=respuesta,default="en proceso")
-	empresa = models.ForeignKey(Empresa)
+	empresa = models.ForeignKey(Empresa,related_name="em")
 	estudiantess = models.ForeignKey(Estudiante,null=True,blank=True)
 
 	def __unicode__(self):

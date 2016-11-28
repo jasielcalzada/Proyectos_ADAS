@@ -19,7 +19,7 @@
   <tbody>
   	{%for p in pro%}
     <tr>
-      <td>{{p.nombre}}</td>
+      <td><a href="/detalle_proyecto/{{p.pk}}">{{p.nombre}}</a></td>
 	  <td>{{p.descripcion}}</td>
 	  <td>{{p.fecha_publicacion}}</td>
 	  <td>{{p.perfil_proyecto}}</td>
